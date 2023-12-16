@@ -11,7 +11,7 @@ builder.Services.AddSingleton<IProposalRepository, ProposalRepository>();
 var app = builder.Build();
 
 app.UseStaticFiles();
-
+//i can commit
 app.UseRouting();
 
 app.UseAuthentication();
