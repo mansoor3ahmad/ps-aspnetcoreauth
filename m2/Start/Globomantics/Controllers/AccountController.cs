@@ -148,5 +148,14 @@ namespace Globomantics.Controllers
 
             return LocalRedirect(result.Properties?.Items["returnUrl"] ?? "/");
         }
+
+
+        [Route("/LogOut")]
+        public async Task<IActionResult> LogOut()
+        {
+            //Though the signout Async is done on the CookieAuthentication, the google Authentication is also signedout
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return LocalRedirect("/");
+        }
     }
 }
