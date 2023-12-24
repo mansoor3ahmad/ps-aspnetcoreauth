@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Globomantics.Controllers;
+
+//Adding authorization attribute makes the controlle available for the authorized persons only
+[Authorize]
 public class ProposalController : Controller
 {
     private readonly IConferenceRepository conferenceRepo;
@@ -30,6 +33,8 @@ public class ProposalController : Controller
         return View(new ProposalModel { ConferenceId = conferenceId });
     }
 
+    //Authorization attribute can be set at the api levels and views level also
+    //[Authorize]
     [HttpPost]
     public IActionResult AddProposal(ProposalModel proposal)
     {
